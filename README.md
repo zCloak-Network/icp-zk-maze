@@ -108,3 +108,5 @@ import {
 
 🎬 Demo Video:
 
+https://github.com/zCloak-Network/icp-zk-maze/assets/71303553/8f4c18d2-15a5-49a4-828e-d88edd654558
+
