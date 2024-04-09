@@ -1,0 +1,27 @@
+{
+  "canisters": {
+    "zkmaze_backend": {
+      "candid": "src/zkmaze_backend/zkmaze_backend.did",
+      "package": "zkmaze_backend",
+      "type": "rust"
+    },
+    "zkmaze_frontend": {
+      "dependencies": [
+        "zkmaze_backend"
+      ],
+      "source": [
+        "src/zkmaze_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "zkmaze_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
