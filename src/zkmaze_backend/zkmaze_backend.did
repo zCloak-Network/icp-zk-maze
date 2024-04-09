@@ -1,3 +1,7 @@
 service : {
-    "greet": (text) -> (text) query;
+    "test_proof": () -> (bool, vec text) query;  
+    "zk_verify": (text, text, text) -> (text, text, vec text);
+    "zk_verify_test": () -> (text, text, vec text);
+    "public_key" : () -> (variant { Ok: record { public_key_hex: text; }; Err: text });
+
 }
