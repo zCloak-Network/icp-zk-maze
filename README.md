@@ -2,7 +2,7 @@
 
 ## Description
 ZK coprocessor offloads intensive Zero-Knowledge (ZK) computations from traditional blockchains, enabling the creation and verification of Zero-Knowledge Proofs (ZKPs) without revealing private information. Established on ICP, the ZK coprocessor is designed to be multi-chain compatible, cost-effective, and high-speed. With the ZK Coprocessor, users and developers can enjoy Web3 services with near Web2 experience, fostering a new era of privacy-first digital identity and credentials on blockchain. 
-For demo application use, we built a [ZK Maze game](https://zkmaze.zkid.app/) to show that ZK coprocessor can be seamless integrated into a project.
+For demo application use, we built a (ZK Maze game)[https://zkmaze.zkid.app/] to show that ZK coprocessor can be seamless integrated into a project.
 
 ## Why using ICP
 | Comparison (STARK proof verification) | ICP | EVM chains |
