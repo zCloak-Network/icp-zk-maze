@@ -33,7 +33,7 @@ dfx build zkmaze_backend
 dfx deploy zkmaze_backend
 ```
 
-## How to integrate with your frontend (e.g. TypeScript)
+## How to integrate with your frontend on IC main net (e.g. TypeScript)
 - Step1: get `idl_factory` and other ZK proof input data
 ```ts
 // zk.ts
