@@ -9,7 +9,7 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
-miden-vm = {git = "https://github.com/jonathanxuu/miden-winter.git", branch = "zk-maze", version = "0.5.0"}
+miden-vm = {git = "https://github.com/zCloak-Network/miden-winter.git", branch = "zk-maze", version = "0.5.0"}
 candid = "0.8.2"
 ic-cdk = "0.6.0"
 ic-cdk-macros = "0.6.0"

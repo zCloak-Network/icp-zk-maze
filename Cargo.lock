@@ -685,7 +685,7 @@ checksum = "6c8640c5d730cb13ebd907d8d04b52f55ac9a2eec55b440c8892f40d56c76c1d"
 [[package]]
 name = "miden-air"
 version = "0.5.0"
-source = "git+https://github.com/jonathanxuu/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
+source = "git+https://github.com/zCloak-Network/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
 dependencies = [
  "miden-core",
  "serde",
@@ -695,7 +695,7 @@ dependencies = [
 [[package]]
 name = "miden-assembly"
 version = "0.5.0"
-source = "git+https://github.com/jonathanxuu/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
+source = "git+https://github.com/zCloak-Network/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
 dependencies = [
  "miden-core",
  "num_enum",
@@ -704,7 +704,7 @@ dependencies = [
 [[package]]
 name = "miden-core"
 version = "0.5.0"
-source = "git+https://github.com/jonathanxuu/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
+source = "git+https://github.com/zCloak-Network/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
 dependencies = [
  "miden-crypto",
  "serde",
@@ -716,7 +716,7 @@ dependencies = [
 [[package]]
 name = "miden-crypto"
 version = "0.2.0"
-source = "git+https://github.com/jonathanxuu/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
+source = "git+https://github.com/zCloak-Network/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
 dependencies = [
  "blake3",
  "serde",
@@ -728,7 +728,7 @@ dependencies = [
 [[package]]
 name = "miden-processor"
 version = "0.5.0"
-source = "git+https://github.com/jonathanxuu/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
+source = "git+https://github.com/zCloak-Network/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
 dependencies = [
  "log",
  "miden-core",
@@ -739,7 +739,7 @@ dependencies = [
 [[package]]
 name = "miden-prover"
 version = "0.5.0"
-source = "git+https://github.com/jonathanxuu/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
+source = "git+https://github.com/zCloak-Network/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
 dependencies = [
  "log",
  "miden-air",
@@ -750,7 +750,7 @@ dependencies = [
 [[package]]
 name = "miden-stdlib"
 version = "0.4.0"
-source = "git+https://github.com/jonathanxuu/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
+source = "git+https://github.com/zCloak-Network/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
 dependencies = [
  "miden-assembly",
 ]
@@ -758,7 +758,7 @@ dependencies = [
 [[package]]
 name = "miden-verifier"
 version = "0.5.0"
-source = "git+https://github.com/jonathanxuu/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
+source = "git+https://github.com/zCloak-Network/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
 dependencies = [
  "miden-air",
  "miden-core",
@@ -768,7 +768,7 @@ dependencies = [
 [[package]]
 name = "miden-vm"
 version = "0.5.0"
-source = "git+https://github.com/jonathanxuu/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
+source = "git+https://github.com/zCloak-Network/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
 dependencies = [
  "env_logger",
  "hex",
@@ -1540,7 +1540,7 @@ dependencies = [
 [[package]]
 name = "winter-air"
 version = "0.6.2"
-source = "git+https://github.com/jonathanxuu/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
+source = "git+https://github.com/zCloak-Network/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
 dependencies = [
  "serde",
  "winter-crypto",
@@ -1552,7 +1552,7 @@ dependencies = [
 [[package]]
 name = "winter-crypto"
 version = "0.6.2"
-source = "git+https://github.com/jonathanxuu/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
+source = "git+https://github.com/zCloak-Network/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
 dependencies = [
  "blake3",
  "sha3",
@@ -1563,7 +1563,7 @@ dependencies = [
 [[package]]
 name = "winter-fri"
 version = "0.6.2"
-source = "git+https://github.com/jonathanxuu/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
+source = "git+https://github.com/zCloak-Network/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
 dependencies = [
  "serde",
  "winter-crypto",
@@ -1574,7 +1574,7 @@ dependencies = [
 [[package]]
 name = "winter-math"
 version = "0.6.2"
-source = "git+https://github.com/jonathanxuu/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
+source = "git+https://github.com/zCloak-Network/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
 dependencies = [
  "serde",
  "winter-utils",
@@ -1583,7 +1583,7 @@ dependencies = [
 [[package]]
 name = "winter-prover"
 version = "0.6.2"
-source = "git+https://github.com/jonathanxuu/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
+source = "git+https://github.com/zCloak-Network/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
 dependencies = [
  "log",
  "winter-air",
@@ -1596,12 +1596,12 @@ dependencies = [
 [[package]]
 name = "winter-utils"
 version = "0.6.2"
-source = "git+https://github.com/jonathanxuu/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
+source = "git+https://github.com/zCloak-Network/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
 
 [[package]]
 name = "winter-verifier"
 version = "0.6.2"
-source = "git+https://github.com/jonathanxuu/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
+source = "git+https://github.com/zCloak-Network/miden-winter.git?branch=zk-maze#ecfca51495422848dcd46f307e0e652cd3a81770"
 dependencies = [
  "winter-air",
  "winter-crypto",
