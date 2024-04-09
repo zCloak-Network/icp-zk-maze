@@ -1,61 +1,110 @@
-# zkmaze
+# ZK Coprocessor
 
-Welcome to your new zkmaze project and to the internet computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
+## Description
+ZK coprocessor offloads intensive Zero-Knowledge (ZK) computations from traditional blockchains, enabling the creation and verification of Zero-Knowledge Proofs (ZKPs) without revealing private information. Established on ICP, the ZK coprocessor is designed to be multi-chain compatible, cost-effective, and high-speed. With the ZK Coprocessor, users and developers can enjoy Web3 services with near Web2 experience, fostering a new era of privacy-first digital identity and credentials on blockchain. 
+For demo application use, we built a (ZK Maze game)[https://zkmaze.zkid.app/] to show that ZK coprocessor can be seamless integrated into a project.
 
-To get started, you might want to explore the project directory structure and the default configuration file. Working with this project in your development environment will not affect any production deployment or identity tokens.
+## Why using ICP
+| Comparison (STARK proof verification) | ICP | EVM chains |
+| :----- | :----- | :----- |
+| Cost | as low as 2 cents | thousand of dollars |
+| Efficiency | 0.2s per proof | 30s to tens of minutes |
+| Interoperability | Reusable result in any **tECDSA** compatible chain | Result locked in one chain |
+| UX | No gas fee, no wallet (**reverse gas**) | Install wallet and buy ETH to simply get started |
 
-To learn more before you start working with zkmaze, see the following documentation available online:
+## How to Run
+🫙 Canister ID (on IC main net): `7n7be-naaaa-aaaag-qc4xa-cai`.
 
-- [Quick Start](https://internetcomputer.org/docs/current/developer-docs/setup/deploy-locally)
-- [SDK Developer Tools](https://internetcomputer.org/docs/current/developer-docs/setup/install)
-- [Rust Canister Development Guide](https://internetcomputer.org/docs/current/developer-docs/backend/rust/)
-- [ic-cdk](https://docs.rs/ic-cdk)
-- [ic-cdk-macros](https://docs.rs/ic-cdk-macros)
-- [Candid Introduction](https://internetcomputer.org/docs/current/developer-docs/backend/candid/)
-
-If you want to start working on your project right away, you might want to try the following commands:
-
+If you want to deploy this canister locally, you can flow this flowing step:
 ```bash
-cd zkmaze/
-dfx help
-dfx canister --help
+cd icp-zk-maze/
+cargo update
+
+# if you don't have wasm32 toolchain, please install it first
+rustup target add wasm32-unknown-unknown
+
+# start ICP background locally
+dfx start --clean --background
+
+# build canister
+dfx build zkmaze_backend
+
+# deploy the zk coprocessor canister
+dfx deploy zkmaze_backend
 ```
 
-## Running the project locally
+## How to integrate with your frontend (e.g. TypeScript)
+- Step1: get `idl_factory` and other ZK proof input data
+```ts
+// zk.ts
+import fs from "fs";
 
-If you want to test your project locally, you can use the following commands:
+export const programHash =
+  "79414c1c82c0ef42aff896debc5b8ed351189264f32085ea5fad753b19f48d4e";
 
-```bash
-# Starts the replica, running in the background
-dfx start --background
+export const publicInput =
+  "7,4,6,5,6,2,5,4,5,3,5,1,4,6,4,5,4,4,3,6,2,5,2,3,2,2,1,7,1,3,1,2,0,7,17,15,7,7,0,0,8,8";
 
-# Deploys your canisters to the replica and generates your candid interface
-dfx deploy
+export const zkp_result = fs.readFileSync("./zkpResult.json", {
+  encoding: "utf-8",
+});
+
+export const canister_id = "7n7be-naaaa-aaaag-qc4xa-cai";
+
+export const idl_factory = ({ IDL }: { IDL: any }) => {
+  return IDL.Service({
+    greet: IDL.Func([IDL.Text], [IDL.Text], []),
+    public_key: IDL.Func(
+      [],
+      [
+        IDL.Variant({
+          Ok: IDL.Record({ public_key_hex: IDL.Text }),
+          Err: IDL.Text,
+        }),
+      ],
+      []
+    ),
+    zk_verify: IDL.Func(
+      [IDL.Text, IDL.Text, IDL.Text],
+      [IDL.Text, IDL.Text, IDL.Vec(IDL.Text)],
+      []
+    ),
+  });
+};
+
 ```
 
-Once the job completes, your application will be available at `http://localhost:4943?canisterId={asset_canister_id}`.
+- Step2: Interact with ZK Coprocessor canister
+```ts
+// zkp-verify.ts
+import fetch from "isomorphic-fetch";
+import { Actor, HttpAgent } from "@dfinity/agent";
+import {
+  programHash,
+  publicInput,
+  zkp_result,
+  canister_id,
+  idl_factory,
+} from "./zk";
 
-If you have made changes to your backend canister, you can generate a new candid interface with
+(async () => {
+  const agent = new HttpAgent({ fetch, host: "https://ic0.app" });
 
-```bash
-npm run generate
+  const actor = Actor.createActor(idl_factory, {
+    agent,
+    canisterId: canister_id,
+  });
+
+  const res = await actor.zk_verify(programHash, publicInput, zkp_result);
+  console.log(res);
+})();
+
 ```
 
-at any time. This is recommended before starting the frontend development server, and will be run automatically any time you run `dfx deploy`.
+## ZK Coprocessor Application (ZK Maze game)
+🔗 ZK Maze Github: https://github.com/zCloak-Network/ZK-Maze
 
-If you are making frontend changes, you can start a development server with
+🔗 ZK Maze Game: https://zkmaze.zkid.app/
 
-```bash
-npm start
-```
+🎬 Demo Video:
 
-Which will start a server at `http://localhost:8080`, proxying API requests to the replica at port 4943.
-
-### Note on frontend environment variables
-
-If you are hosting frontend code somewhere without using DFX, you may need to make one of the following adjustments to ensure your project does not fetch the root key in production:
-
-- set`DFX_NETWORK` to `ic` if you are using Webpack
-- use your own preferred method to replace `process.env.DFX_NETWORK` in the autogenerated declarations
-  - Setting `canisters -> {asset_canister_id} -> declarations -> env_override to a string` in `dfx.json` will replace `process.env.DFX_NETWORK` with the string in the autogenerated declarations
-- Write your own `createActor` constructor
